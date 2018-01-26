@@ -1,11 +1,11 @@
-import { renderer } from './index.js';
+import { renderer } from "./index.js";
 
 export default function createStore(reducer) {
   let state;
 
   function dispatch(action) {
     state = reducer(state, action);
-     if (process.env.NODE_ENV !== 'test') {
+    if (process.env.NODE_ENV !== "test") {
       console.log(`the action is`);
       console.log(action);
       console.log(`the state is`);
@@ -15,11 +15,12 @@ export default function createStore(reducer) {
   }
 
   function getState() {
+    console.log("State", state);
     return state;
   }
 
   return {
-    dispatch, 
-    getState,
+    dispatch,
+    getState
   };
-};
+}
